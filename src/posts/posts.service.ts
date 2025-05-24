@@ -6,8 +6,8 @@ import {
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { CaslAbilityService } from 'src/casl/casl-ability/casl-ability.service';
 import { accessibleBy } from '@casl/prisma';
+import { CaslAbilityService } from 'src/casl/casl-ability.service';
 
 @Injectable()
 export class PostsService {
