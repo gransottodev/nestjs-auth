@@ -23,7 +23,7 @@ Este projeto é um serviço de autenticação e autorização construído com [N
 
 1. **Clone o repositório**
    ```sh
-   git clone https://github.com/gransottodev/auth-service.git
+   git clone https://github.com/seu-usuario/auth-service.git
    cd auth-service
    ```
 
@@ -32,21 +32,29 @@ Este projeto é um serviço de autenticação e autorização construído com [N
    npm install
    ```
 
-3. **Configure as variáveis de ambiente**
+3. **Suba o banco de dados com Docker Compose**
+   ```sh
+   docker compose up -d
+   ```
+   O banco estará disponível em `localhost:5432` com:
+   - Usuário: `root`
+   - Senha: `root`
+   - Banco: `mydb`
+
+4. **Configure as variáveis de ambiente**
 
    Crie um arquivo `.env` na raiz do projeto com as variáveis:
    ```
-   DATABASE_URL=postgresql://usuario:senha@localhost:5432/seubanco
+   DATABASE_URL=postgresql://root:root@localhost:5432/mydb
    JWT_SECRET_KEY=sua_chave_secreta
-   PORT=3000
    ```
 
-4. **Rode as migrations do Prisma**
+5. **Rode as migrations do Prisma**
    ```sh
    npx prisma migrate deploy
    ```
 
-5. **Inicie o servidor**
+6. **Inicie o servidor**
    ```sh
    npm run start:dev
    ```
@@ -78,6 +86,7 @@ src/
 - **CASL** — controle de acesso baseado em regras
 - **JWT** — autenticação baseada em tokens
 - **bcrypt** — hash de senhas
+- **Docker Compose** — orquestração do banco de dados
 
 ## Licença
 
