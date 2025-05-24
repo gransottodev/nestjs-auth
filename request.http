@@ -1,0 +1,75 @@
+
+###
+# @name adminLogin
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "editor@editor.com.br",
+  "password": "123456"
+}
+
+###
+@tokenAdmin = {{ adminLogin.response.body.accessToken }}
+
+
+POST http://localhost:3000/users
+Content-Type: application/json
+Authorization: Bearer {{tokenAdmin}}
+
+{
+  "name": "EDITOR",
+  "email": "editor@editor.com.br",
+  "password": "123456",
+  "role": "EDITOR"
+}
+
+###
+GET http://localhost:3000/users
+Authorization: Bearer {{tokenAdmin}}
+
+###
+GET http://localhost:3000/users/cmb1ktyoa0003o2rrdwg56kyl
+Authorization: Bearer {{tokenAdmin}}
+
+###
+DELETE http://localhost:3000/users/cmb1jpwz30000o2v8o2nfoa4w
+Authorization: Bearer {{tokenAdmin}}
+
+
+###
+
+###
+POST http://localhost:3000/posts
+Content-Type: application/json
+Authorization: Bearer {{tokenAdmin}}
+
+{
+  "title": "My first post",
+  "content": "This is the content of my first post",
+  "published": true
+}
+
+###
+PATCH http://localhost:3000/posts/cmb1qaxuk0009o2a15r94gshb
+Content-Type: application/json
+Authorization: Bearer {{tokenAdmin}}
+
+{
+  "title": "My first post - updated",
+  "content": "This is the content of my first post - updated",
+  "published": false
+}
+
+
+###
+GET http://localhost:3000/posts
+Authorization: Bearer {{tokenAdmin}}
+
+###
+GET http://localhost:3000/posts/cmb1qau7z0003o2a1eeh2om1n
+Authorization: Bearer {{tokenAdmin}}
+
+###
+DELETE http://localhost:3000/posts/cmb1qmi7l0003o252pjcgbla2
+Authorization: Bearer {{tokenAdmin}}
