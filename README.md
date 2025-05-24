@@ -23,7 +23,7 @@ Este projeto é um serviço de autenticação e autorização construído com [N
 
 1. **Clone o repositório**
    ```sh
-   git clone https://github.com/seu-usuario/auth-service.git
+   git clone https://github.com/gransottodev/auth-service.git
    cd auth-service
    ```
 
